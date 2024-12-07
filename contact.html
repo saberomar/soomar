@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard/OS_Site</title>
+    <link rel="icon" type="image/png" href="converted_image.png" class="favicon">
+    <style>
+        .favicon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color:gray; /* Optional: For background color */
+            z-index: 1000; /* Ensures the navbar stays on top of other content */
+            padding: 10px 0;
+        }
+        
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url(360_F_391461057_5P0BOWl4lY442Zoo9rzEeJU0S2c1WDZR.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 50px; /* Add padding to body to prevent content from hiding behind the navbar */
+        }
+        
+
+        .head {
+            margin: 0;
+            padding: 20px 0px;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            text-align: left;
+            box-shadow: 50px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            margin-right: auto;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: aliceblue;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: aliceblue;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: #f0f0f0;
+        }
+
+        .logout {
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #003f92;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .logout:hover {
+            background-color: #003f92;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            flex: 1;
+        }
+        .hover{
+            padding-top: 40px;
+            width: 50px;
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        .hover:hover{
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .box{
+            width: 400px;
+            height: 100;
+            padding-left: 20px;
+            transition: all 0.50s ease;
+            justify-content: left;
+        }
+        .box:hover{
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .content{
+            display: flex;
+            justify-content: left;
+            flex-direction:row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            background-color: rgb(255, 255, 255);
+            width: 21.25em;
+            box-shadow: 0 5px 25px rgba(1 1 1 /20%);
+            border-radius: 10px;
+            padding: 25px;
+            margin:15px;
+            transition: 1.7s ease;
+            justify-content: center;
+            align-items: center;
+        }
+        .card:hover{transform:scale(1.1);}
+        .icon{
+            color: #3366ff;
+            font-size: 8em;
+            text-align: center;
+        
+        }
+        .info{
+            text-align: center;
+        }
+        .info h3{
+            color:#1140dd ;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin: 10px;
+        
+        }
+        
+        .title{
+            color: #093ff1;
+        }
+        .projects .content{
+            margin-top: 30px;
+        }
+        .procard{
+            background-color: #ffffff;
+            min-height: 14em;
+            width: 23em;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 10px;
+            transition: 0.7s ease;
+        
+        }
+        .procard:hover{
+            transform: scale(1.1);
+        }
+        .procard:hover .proimage{
+            opacity: 0.9;
+        }
+        .proimage img{
+            width: 100%;
+        }
+        .proinfo{
+            padding: 1em;
+        }
+        .proc{
+            font-size: 0.8em;
+            color: #000;
+        
+        }
+        .protitle{
+            display: flex;
+            justify-content: space-between;
+            text-transform:uppercase ;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+        .more-details{
+            text-decoration: none;
+            color: #4d4dff;
+        }
+        .more-details:hover{
+            color: #7b07b1;
+        }
+        .oma{
+            text-decoration: none;
+            color: #3366ff;
+            transform:scale(1.1);
+        }
+        .oma:hover{
+            color: #800080;
+            transition: 10px;
+        }
+        .thank{
+            margin-bottom:70px;
+            width: 100;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* للأجهزة اللوحية */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+        
+        /* للهواتف */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+        }
+        .logo2 {
+            width: 120px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: auto;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: aliceblue;
+        }
+
+        .logo2:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo2 img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+    </style>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <section class="nam">
+        <nav>
+            <a href="#projects">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </section>
+    <div class="hover">
+        <a href="converted_image.png" class="logo">
+            <img src="converted_image.png" alt="Logo"<h1>Hello</h1>
+        </a>
+    </div>
+    <div class="content">
+        <section class="head">
+            <div class="box">
+                <h2>OS_Site<br><br><span>Web developers</span></h2>
+                <h3>We make your life easier</h3>
+                <img src="converted_image.png" class="logo2">
+                
+            </div>
+        </section>
+    </div>
+    <section class="cards" id="services">
+        <center>
+            <h2 class="title">Services</h2>
+        </center>
+        
+        <div class="content">
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="info">
+                    <h3>Script Writing</h3>
+                    <p>Research and write scripts for different topics that can then be directly recorded for video production</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="info">
+                    <h3>Video Production</h3>
+                    <p>Record and shoot videos taking into consideration proper settings, followed by production & post-production work</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="info">
+                    <h3>Curriculum Development</h3>
+                    <p>Develop complete curriculums for various technical topics to produce digital transformative courses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects" id="projects">
+        <center>
+            <h2 class="title">EX:Project</h2>
+        </center>
+        
+        <div class="content">
+            <div class="procard">
+                <div class="proimage">
+                    <img src="converted_image.png" alt="Project Image">
+                    <div class="proinfo">
+                        <p class="proc">Help you make your brand the best</p>
+                        <strong class="protitle">
+                            <span>Webpage:</span>
+                            <a href="https://saberomar.github.io/photo_Editor/">Example<br></a>
+                            <h2></h2>
+                            <a href="https://wa.me/+2001123148848" class="more-details"><br>Let's Make your project</a>
+                            
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cardcon" id="contact">
+        <center>
+            <h2 class="title">Let's Work Together</h2>
+        </center>
+        
+        <div class="content">
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="info">
+                    <h3>Email</h3>
+                    <p>saberomar724@gmail.com</p>
+                    <a class="oma" href="https://wa.me/+2001123148848">WhatsApp</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="info">
+                    <h3>Phone Number</h3>
+                    <p>01123148848</p>
+                    <a class="oma" href="https://wa.me/+2001123148848">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <center>
+        <h2 class="thank">Thanks for Reading</h2>
+    </center>
+    <center>
+
+        <button onclick="logout()" class="logout">Logout</button>
+    </center>
+
+    
+    <script>
+        async function fetchDashboard() {
+            const token = localStorage.getItem('token');
+
+            const res = await fetch('login.html', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                console.log('Welcome:', data.message); // Adjust this based on your needs
+            } else {
+                window.location.href = 'index1.html';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = 'index1.html';
+        }
+
+        fetchDashboard();
+    </script>
+</body>
+</html>

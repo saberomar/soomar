@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OS_Site</title>
+    <link rel="icon" type="image/png" href="converted_image.png">
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('360_F_391461057_5P0BOWl4lY442Zoo9rzEeJU0S2c1WDZR.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #333; /* Fallback color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .head {
+            margin: 0;
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: aliceblue;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: #f0f0f0;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .login, .pass {
+            width: 210px;
+            height: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .login:hover, .pass:hover {
+            width: 250px;
+            background-color: white;
+        }
+
+        .logins {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btlogin, .btsign {
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btlogin:hover, .btsign:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.8); /* Fallback background */
+            background-image: url("download.jpeg");
+            max-width: 500px;
+            width: 90%;
+            height: auto;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.5s ease;
+        }
+        .box:hover{
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: aliceblue;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+        
+        /* للهواتف */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="head">
+        <h1>OS_Site</h1>
+    </header>
+
+    <div class="box">
+        <h1>Hello</h1>
+        <div class="col">
+            <input type="text" placeholder="Username" class="login">
+            <input type="password" placeholder="Password" class="pass">
+            <div class="logins">
+                <button class="btlogin">Login</button>
+                <button class="btsign">Signup</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.btlogin').addEventListener('click', function() {
+            const usernameInput = document.querySelector('.login');
+            const passwordInput = document.querySelector('.pass');
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            // Clear previous placeholder messages
+            usernameInput.placeholder = "Username";
+            passwordInput.placeholder = "Password";
+
+            if (!username && !password) {
+                usernameInput.value = "";
+                passwordInput.value = "";
+                usernameInput.placeholder = "Enter your username";
+                passwordInput.placeholder = "Enter your password";
+            } else if (!username) {
+                usernameInput.value = "";
+                usernameInput.placeholder = "Enter your username";
+            } else if (!password) {
+                passwordInput.value = "";
+                passwordInput.placeholder = "Enter your password";
+            } else {
+                // Store the username and redirect to index3.html for login
+                localStorage.setItem('userUsername', username);
+                window.location.href = 'index3.html'; // Redirect to index3.html after login
+            }
+        });
+
+        document.querySelector('.btsign').addEventListener('click', function() {
+            // Redirect to index2.html when Sign Up button is clicked
+            window.location.href = 'index2.html';
+        });
+    </script>
+</body>
+</html>
